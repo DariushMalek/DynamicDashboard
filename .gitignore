@@ -6,3 +6,4 @@
 /DynamicDashboard/DynamicDashboard/obj
 /DynamicDashboard/DynamicDashboard/bin/Debug/netcoreapp2.2
 /DynamicDashboard/DynamicDashboard.sln.DotSettings.user
+*.user
