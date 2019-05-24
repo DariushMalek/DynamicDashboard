@@ -3,3 +3,5 @@
 ################################################################################
 
 /DynamicDashboard/.vs/DynamicDashboard/v15
+/DynamicDashboard/DynamicDashboard/obj
+*.user
