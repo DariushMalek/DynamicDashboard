@@ -79,7 +79,7 @@ namespace DynamicDashboard
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider services)
         {
             if (env.IsDevelopment())
             {
@@ -105,6 +105,47 @@ namespace DynamicDashboard
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            CreateUserRoles(services).Wait();
+        }
+
+        private async Task CreateUserRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+
+            IdentityResult roleResult;
+            //Adding Addmin Role  
+            var roleCheck = await RoleManager.RoleExistsAsync("Admin");
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database  
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+
+            //roleCheck = await RoleManager.RoleExistsAsync("Manager");
+            //if (!roleCheck)
+            //{
+            //    //create the roles and seed them to the database  
+            //    roleResult = await RoleManager.CreateAsync(new IdentityRole("Manager"));
+            //}
+
+            if (UserManager.FindByEmailAsync("nomalek@gmail.com") == null)
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "nomalek@gmail.com",
+                    UserName = "d.malek"
+                };
+                await UserManager.CreateAsync(user, "windows123");
+                await UserManager.AddToRoleAsync(user, "Admin");
+            }
+
+
+            //user = await UserManager.FindByEmailAsync("Afraz@gmail.com");
+            //await UserManager.AddToRoleAsync(user, "Manager");
+
         }
     }
 }

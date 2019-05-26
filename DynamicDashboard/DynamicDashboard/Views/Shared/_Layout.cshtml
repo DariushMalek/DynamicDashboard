@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
     @Html.Partial("_Head")
+    @RenderSection("Styles", required: false)
 </head>
 
 <body class="nav-md footer_fixed">
@@ -21,7 +22,7 @@
             @Html.Partial("_TopNav")
             <div class="right_col" role="main">
                 <div class="">
-                    <div class="page-title">
+                    @*<div class="page-title">
                         <div class="title_left">
                             <h3>صفحه ساده</h3>
                         </div>
@@ -35,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <div class="clearfix"></div>
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -68,6 +69,8 @@
     <!-- Custom Theme Scripts -->
     <script src="~/build/js/custom.min.js"></script>
     <script src="~/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-@RenderSection("scripts", required: false)
+    <!-- jQuery Smart Wizard -->
+    <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
