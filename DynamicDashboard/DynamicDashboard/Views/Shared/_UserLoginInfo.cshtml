@@ -1,0 +1,35 @@
+﻿
+    <!-- BEGIN USER LOGIN DROPDOWN -->
+    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+
+    <li class="dropdown dropdown-user">
+        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <img alt="" class="img-circle" src="~/assets/admin/layout/img/avatar3_small.jpg" />
+            <span class="username username-hide-on-mobile">
+                Nick
+            </span>
+            <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-default">
+            <li>
+                <a asp-controller="Account" asp-action="Register">
+                    <i class="icon-user"></i> حساب کاربری
+                </a>
+            </li>
+            <li class="divider">
+            </li>
+            <li>
+                <a href="extra_lock.html">
+                    <i class="icon-lock"></i> قفل کردن صفحه
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Account" asp-action="Logout">
+                    <i class="icon-key"></i> خروج
+                </a>
+
+            </li>
+        </ul>
+    </li>
+
+    <!-- END USER LOGIN DROPDOWN -->

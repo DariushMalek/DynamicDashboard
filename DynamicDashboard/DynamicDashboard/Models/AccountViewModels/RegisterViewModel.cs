@@ -49,5 +49,8 @@ namespace DynamicDashboard.Models.AccountViewModels
         
         [Display(Name = "آدرس")]
         public string Adddress { get; set; }
+
+        [Display(Name = "پست سازمانی")]
+        public string OrganizationPosition { get; set; }
     }
 }

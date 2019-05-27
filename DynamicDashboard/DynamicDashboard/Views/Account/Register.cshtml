@@ -1,175 +1,262 @@
 ﻿@model RegisterViewModel
-@{
-    ViewData["Title"] = "اطلاعات کاربر";
-}
-<div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>
-                    فرم جادویی
-                    <small>جلسات</small>
-                </h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#">تنظیمات 1</a>
-                            </li>
-                            <li>
-                                <a href="#">تنظیمات 2</a>
+<!-- BEGIN PAGE CONTENT-->
+<head>
+    
+</head>
+<body>
+    <div class="row margin-top-20">
+        <div class="col-md-12">
+            <!-- BEGIN PROFILE SIDEBAR -->
+            <div class="profile-sidebar">
+                <!-- PORTLET MAIN -->
+                <div class="portlet light profile-sidebar-portlet">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        <img src="../../assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">
+                            @Model.UserName
+                        </div>
+                        <div class="profile-usertitle-job">
+                            @Model.OrganizationPosition
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR MENU -->
+                    <div class="profile-usermenu">
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="extra_profile_account.html">
+                                    <i class="icon-settings"></i>
+                                    تنظیمات حساب کاربری
+                                </a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
+                    </div>
+                    <!-- END MENU -->
+                </div>
+                <!-- END PORTLET MAIN -->
+
             </div>
-            <div class="x_content">
-
-                <!-- Smart Wizard -->
-                <p>این یک فرم جادوگر پایه ای است که رنگ ها را از طرح انتخاب به ارث می برد.</p>
-                <div id="wizard" class="form_wizard wizard_horizontal">
-                    <ul class="wizard_steps">
-                        <li>
-                            <a href="#step-1">
-                                <span class="step_no">1</span>
-                                <span class="step_descr">
-                                    قدم اول<br />
-                                    <small>توضیحات قدم اول</small>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#step-2">
-                                <span class="step_no">2</span>
-                                <span class="step_descr">
-                                    قدم دوم<br />
-                                    <small>توضیحات قدم دوم</small>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#step-3">
-                                <span class="step_no">3</span>
-                                <span class="step_descr">
-                                    قدم سوم<br />
-                                    <small>توضیحات قدم سوم</small>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#step-4">
-                                <span class="step_no">4</span>
-                                <span class="step_descr">
-                                    قدم چهارم<br />
-                                    <small>توضیحات قدم چهارم</small>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div id="step-1">
-                        <form class="form-horizontal form-label-left">
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                    نام<span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name" required="required"
-                                           class="form-control col-md-7 col-xs-12">
+            <!-- END BEGIN PROFILE SIDEBAR -->
+            <!-- BEGIN PROFILE CONTENT -->
+            <div class="profile-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet light">
+                            <div class="portlet-title tabbable-line">
+                                <div class="caption caption-md">
+                                    <i class="icon-globe theme-font hide"></i>
+                                    <span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
                                 </div>
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#tab_1_1" data-toggle="tab">Personal Info</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab_1_2" data-toggle="tab">Change Avatar</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab_1_3" data-toggle="tab">Change Password</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab_1_4" data-toggle="tab">Privacy Settings</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
-                                    نام خانوادگی<span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="last-name" name="last-name" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">نام میانی</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text"
-                                           name="middle-name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">جنسیت</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <div id="gender" class="btn-group" data-toggle="buttons">
-                                        <label class="btn btn-default" data-toggle-class="btn-primary"
-                                               data-toggle-passive-class="btn-default">
-                                            <input type="radio" name="gender" value="male"> &nbsp; مذکر &nbsp;
-                                        </label>
-                                        <label class="btn btn-primary" data-toggle-class="btn-primary"
-                                               data-toggle-passive-class="btn-default">
-                                            <input type="radio" name="gender" value="female"> مونث
-                                        </label>
+                            <div class="portlet-body">
+                                <div class="tab-content">
+                                    <!-- PERSONAL INFO TAB -->
+                                    <div class="tab-pane active" id="tab_1_1">
+                                        <form role="form" action="#">
+                                            <div class="form-group">
+                                                <label class="control-label">First Name</label>
+                                                <input type="text" placeholder="John" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Last Name</label>
+                                                <input type="text" placeholder="Doe" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Mobile Number</label>
+                                                <input type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Interests</label>
+                                                <input type="text" placeholder="Design, Web etc." class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Occupation</label>
+                                                <input type="text" placeholder="Web Developer" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">About</label>
+                                                <textarea class="form-control" rows="3" placeholder="We are KeenThemes!!!"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Website Url</label>
+                                                <input type="text" placeholder="http://www.mywebsite.com" class="form-control" />
+                                            </div>
+                                            <div class="margiv-top-10">
+                                                <a href="javascript:;" class="btn green-haze">
+                                                    Save Changes
+                                                </a>
+                                                <a href="javascript:;" class="btn default">
+                                                    Cancel
+                                                </a>
+                                            </div>
+                                        </form>
                                     </div>
+                                    <!-- END PERSONAL INFO TAB -->
+                                    <!-- CHANGE AVATAR TAB -->
+                                    <div class="tab-pane" id="tab_1_2">
+                                        <p>
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                        </p>
+                                        <form action="#" role="form">
+                                            <div class="form-group">
+                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                                    </div>
+                                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                                    </div>
+                                                    <div>
+                                                        <span class="btn default btn-file">
+                                                            <span class="fileinput-new">
+                                                                Select image
+                                                            </span>
+                                                            <span class="fileinput-exists">
+                                                                Change
+                                                            </span>
+                                                            <input type="file" name="...">
+                                                        </span>
+                                                        <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput">
+                                                            Remove
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix margin-top-10">
+                                                    <span class="label label-danger">NOTE! </span>
+                                                    <span>Attached image thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only </span>
+                                                </div>
+                                            </div>
+                                            <div class="margin-top-10">
+                                                <a href="javascript:;" class="btn green-haze">
+                                                    Submit
+                                                </a>
+                                                <a href="javascript:;" class="btn default">
+                                                    Cancel
+                                                </a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- END CHANGE AVATAR TAB -->
+                                    <!-- CHANGE PASSWORD TAB -->
+                                    <div class="tab-pane" id="tab_1_3">
+                                        <form action="#">
+                                            <div class="form-group">
+                                                <label class="control-label">Current Password</label>
+                                                <input type="password" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">New Password</label>
+                                                <input type="password" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Re-type New Password</label>
+                                                <input type="password" class="form-control" />
+                                            </div>
+                                            <div class="margin-top-10">
+                                                <a href="javascript:;" class="btn green-haze">
+                                                    Change Password
+                                                </a>
+                                                <a href="javascript:;" class="btn default">
+                                                    Cancel
+                                                </a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- END CHANGE PASSWORD TAB -->
+                                    <!-- PRIVACY SETTINGS TAB -->
+                                    <div class="tab-pane" id="tab_1_4">
+                                        <form action="#">
+                                            <table class="table table-light table-hover">
+                                                <tr>
+                                                    <td>
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus..
+                                                    </td>
+                                                    <td>
+                                                        <label class="uniform-inline">
+                                                            <input type="radio" name="optionsRadios1" value="option1" />
+                                                            Yes
+                                                        </label>
+                                                        <label class="uniform-inline">
+                                                            <input type="radio" name="optionsRadios1" value="option2" checked />
+                                                            No
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Enim eiusmod high life accusamus terry richardson ad squid wolf moon
+                                                    </td>
+                                                    <td>
+                                                        <label class="uniform-inline">
+                                                            <input type="checkbox" value="" /> Yes
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Enim eiusmod high life accusamus terry richardson ad squid wolf moon
+                                                    </td>
+                                                    <td>
+                                                        <label class="uniform-inline">
+                                                            <input type="checkbox" value="" /> Yes
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Enim eiusmod high life accusamus terry richardson ad squid wolf moon
+                                                    </td>
+                                                    <td>
+                                                        <label class="uniform-inline">
+                                                            <input type="checkbox" value="" /> Yes
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!--end profile-settings-->
+                                            <div class="margin-top-10">
+                                                <a href="javascript:;" class="btn green-haze">
+                                                    Save Changes
+                                                </a>
+                                                <a href="javascript:;" class="btn default">
+                                                    Cancel
+                                                </a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- END PRIVACY SETTINGS TAB -->
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                    تاریخ تولد <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="birthday" class="date-picker form-control col-md-7 col-xs-12"
-                                           required="required" type="text">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="step-2">
-                        <h2 class="StepTitle">محتوای قدم دوم</h2>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-
-                        </p>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-
-                        </p>
-                    </div>
-                    <div id="step-3">
-                        <h2 class="StepTitle">محتوای قدم سوم</h2>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-
-                        </p>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-
-                        </p>
-                    </div>
-                    <div id="step-4">
-                        <h2 class="StepTitle">محتوی قدم چهارم</h2>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-
-                        </p>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-
-                        </p>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-
-                        </p>
+                        </div>
                     </div>
                 </div>
-                <!-- End SmartWizard Content -->
             </div>
+            <!-- END PROFILE CONTENT -->
         </div>
     </div>
-</div>
+    <!-- END PAGE CONTENT-->
+    <script>
+        jQuery(document).ready(function () {
 
-
+            Profile.init(); // init page demo
+        });
+    </script>
+</body>

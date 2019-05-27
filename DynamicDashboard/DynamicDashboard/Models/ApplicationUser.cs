@@ -13,5 +13,6 @@ namespace DynamicDashboard.Models
         public string BirthDate { get; set; }
         public string Mobile { get; set; }
         public string  Address { get; set; }
+        public string OrganizationPosition { get; set; }
     }
 }

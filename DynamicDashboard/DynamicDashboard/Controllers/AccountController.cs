@@ -68,8 +68,14 @@ namespace DynamicDashboard.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
+            var user =await _userManager.FindByNameAsync(User.Identity.Name);
+            if (user != null)
+            {
+                var viewModel = new RegisterViewModel { Email = user.Email, UserName = user.UserName, Mobile = user.Mobile, PhoneNumber = user.PhoneNumber, Adddress = user.Address, FirstName = user.FirstName, LastName = user.LastName, BirthDate = user.BirthDate, OrganizationPosition = user.OrganizationPosition };
+                return View(viewModel);
+            }
             return View();
         }
 
@@ -80,7 +86,7 @@ namespace DynamicDashboard.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber = model.PhoneNumber, Mobile = model.Mobile, FirstName = model.FirstName, LastName = model.LastName, BirthDate = model.BirthDate, Address = model.Adddress };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber = model.PhoneNumber, Mobile = model.Mobile, FirstName = model.FirstName, LastName = model.LastName, BirthDate = model.BirthDate, Address = model.Adddress ,OrganizationPosition=model.OrganizationPosition};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -92,6 +98,15 @@ namespace DynamicDashboard.Controllers
             return View(model);
         }
 
+
+
+        public async Task<ActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
         private IActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
@@ -100,7 +115,7 @@ namespace DynamicDashboard.Controllers
             }
             else
             {
-                return RedirectToPage("/Index");
+                return RedirectToAction(nameof(HomeController.Index), "Home");
             }
         }
 

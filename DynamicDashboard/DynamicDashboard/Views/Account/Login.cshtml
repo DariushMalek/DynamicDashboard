@@ -4,73 +4,93 @@
 
 @{
     ViewData["Title"] = "ورود";
-    Layout = null;
+    Layout = "_Layout";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gentelella Alela! | </title>
-    <!-- Bootstrap -->
-    <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/vendors/bootstrap-rtl/dist/css/bootstrap-rtl.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="~/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="~/vendors/animate.css/animate.min.css" rel="stylesheet">
-    <!-- Custom Theme Style -->
-    <link href="~/build/css/custom.css" rel="stylesheet">
-</head>
-<body class="login">
 
-    <div>
-        <a class="hiddenanchor" id="signup"></a>
-        <a class="hiddenanchor" id="signin"></a>
-        <a class="hiddenanchor" id="reset"></a>
-        <div class="login_wrapper">
-            <div class="animate form login_form">
-                <section class="login_content">
-                    <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
-                        <h1>فرم ورود</h1>
-                        <div asp-validation-summary="All" class="text-danger"></div>
-                        <div asp-validation-summary="All" class="text-danger"></div>
-                        <div class="form-group">
-                            <input type="text" asp-for="UserName" class="form-control" placeholder="نام کاربری" required="" />
-                            <span asp-validation-for="UserName" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" asp-for="Password" class="form-control" placeholder="رمز عبور" required="" />
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                        <div>
-                            @*<a class="btn btn-default submit" href="" type="submit">ورود</a>*@
-                            <button type="submit" class="btn btn-primary">ورود</button>
-                            <a class="reset_pass" href="#reset">رمز ورود را از دست دادید؟</a>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="separator">
-                            <p class="change_link">
-                                جدید در سایت؟
-                                <a href="#signup" class="to_register"> ایجاد حساب </a>
-                            </p>
-                            <div class="clearfix"></div>
-                            <br />
-                            <div>
-                                <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                                <p>©1397 تمامی حقوق محفوظ. Gentelella Alela! یک قالب بوت استرپ 3. حریم خصوصی و شرایط</p>
-                            </div>
-                        </div>
-                    </form>
-                </section>
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <a href="index.html">
+            <img src="~/assets/admin/layout/img/logo-big.png" alt="" />
+        </a>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    <div class="menu-toggler sidebar-toggler">
+    </div>
+    <!-- END SIDEBAR TOGGLER BUTTON -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        <form class="login-form" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+            <h3 class="form-title">ورود به پنل کاری</h3>
+            <div class="alert alert-danger display-hide">
+                <button class="close" data-close="alert"></button>
+                <span>
+                    نام کاربری و رمز عبور را وارد کنید.
+                </span>
+            </div>
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9">نام کاربری</label>
+                <div class="input-icon">
+                    <i class="fa fa-user"></i>
+                    <input class="form-control placeholder-no-fix" asp-for="UserName" type="text" autocomplete="off" placeholder="Username" name="username" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">رمز عبور</label>
+                <div class="input-icon">
+                    <i class="fa fa-lock"></i>
+                    <input class="form-control placeholder-no-fix" asp-for="Password" type="password" autocomplete="off" placeholder="Password" name="password" />
+                </div>
+            </div>
+            <div class="form-actions">
+                <label class="checkbox">
+                    <input type="checkbox" name="remember" value="1" /> مرا بخاطر بسپار
+                </label>
+                <button type="submit" class="btn blue pull-right">
+                    ورود <i class="m-icon-swapright m-icon-white"></i>
+                </button>
             </div>
 
-        </div>
+            <div class="forget-password">
+                <h4>رمز عبور خود را فراموش کرده اید ?</h4>
+                <p>
+                    نگران نباشد،  برای بازیابی رمز عبور<a href="javascript:;" id="forget-password">
+                        اینجا
+                    </a> را کلیک کنید
+                </p>
+            </div>
+
+        </form>
+        <!-- END LOGIN FORM -->
+        <!-- BEGIN FORGOT PASSWORD FORM -->
+        <form class="forget-form" action="index.html" method="post">
+            <h3>رمز عبور خود را فراموش کرده اید؟</h3>
+            <p>
+                جهت بازیابی و ارسال رمز عبور ایمیل خود را وارد کنید
+            </p>
+            <div class="form-group">
+                <div class="input-icon">
+                    <i class="fa fa-envelope"></i>
+                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" />
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" id="back-btn" class="btn">
+                    <i class="m-icon-swapleft"></i> بازگشت
+                </button>
+                <button type="submit" class="btn blue pull-right">
+                    ثبت <i class="m-icon-swapright m-icon-white"></i>
+                </button>
+            </div>
+        </form>
+        <!-- END FORGOT PASSWORD FORM -->
+
     </div>
-</body>
-</html>
+    <!-- END LOGIN -->
+    <!-- BEGIN COPYRIGHT -->
+    <div class="copyright">
+        2014 &copy; Metronic - Admin Dashboard Template.
+    </div>
+    <!-- END COPYRIGHT -->
