@@ -1,0 +1,49 @@
+﻿/*----fonts----*/
+@font-face {
+    font-family: IranianSans;
+    src: url('../fonts/iran sans/Iranian Sans.TTF') format('TTF'), url('../fonts/iran sans/AIranianSans.eot') format('eot'), url('../fonts/iran sans/AIranianSans.woff') format('truetype');
+}
+
+@font-face {
+    font-family: B Badr;
+    src: url(../fonts/badr/BBadr.TTF) format('TTF'), url(../fonts/badr/BBadr.eot) format('eot'), url(../fonts/badr/BBadr.woff) format('truetype');
+}
+
+@font-face {
+    font-family: B Koodak Outline;
+    src: url(../fonts/kodak/BKoodakOutline.TTF) format('TTF'), url(../fonts/kodak/BKoodakOutline.eot) format('eot'), url(../fonts/kodak/BKoodakOutline.woff) format('truetype');
+}
+
+@font-face {
+    font-family: B Tir;
+    src: url(../fonts/titr/BTir.TTF) format('TTF'), url(../fonts/titr/BTir.eot) format('eot'), url(../fonts/titr/BTir.woff) format('truetype');
+}
+/*__all tag__*/
+
+
+* {
+    font-family: IranianSans !important;
+}
+
+body {
+    font-family: IranianSans;
+}
+
+
+h3 {
+	font-size: 100%;
+    font-family: IranianSans;
+}
+
+ul li {
+
+    font-family: IranianSans;
+}
+
+p {
+    font-size: 100%;
+    font-family: IranianSans;
+}
+
+
+

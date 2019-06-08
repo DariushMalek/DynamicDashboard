@@ -131,7 +131,8 @@ namespace DynamicDashboard
             //    roleResult = await RoleManager.CreateAsync(new IdentityRole("Manager"));
             //}
 
-            if (UserManager.FindByEmailAsync("nomalek@gmail.com") == null)
+            var currentUser = await UserManager.FindByEmailAsync("nomalek@gmail.com");
+            if ( currentUser == null)
             {
                 var user = new ApplicationUser
                 {
