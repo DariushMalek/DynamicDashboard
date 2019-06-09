@@ -13,5 +13,7 @@ namespace DynamicDashboard.Data
             : base(options)
         {
         }
+
+        public DbSet<MenuMaster> MenuMaster { get; set; }
     }
 }
