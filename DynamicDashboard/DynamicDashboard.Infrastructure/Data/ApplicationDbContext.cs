@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using DynamicDashboard.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using DynamicDashboard.Core.Entities;
+using DynamicDashboard.Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace DynamicDashboard.Data
+namespace DynamicDashboard.Infrastructure.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

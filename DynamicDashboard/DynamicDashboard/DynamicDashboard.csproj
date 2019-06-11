@@ -14,4 +14,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicDashboard.Core\DynamicDashboard.Core.csproj" />
+    <ProjectReference Include="..\DynamicDashboard.Infrastructure\DynamicDashboard.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

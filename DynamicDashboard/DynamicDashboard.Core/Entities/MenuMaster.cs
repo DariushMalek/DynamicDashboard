@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace DynamicDashboard.Models
+namespace DynamicDashboard.Core.Entities
 {
-    public class MenuMaster
+    public class MenuMaster:BaseEntity
     {
-        public int Id { get; set; }
         public string MenuName { get; set; }
         public string MenuTitle { get; set; }
         public string UserRole { get; set; }
         public int? ParentMenuId { get; set; }
-        public string  Controller { get; set; }
+        public string Controller { get; set; }
         public string Action { get; set; }
         public string IconName { get; set; }
         public DateTime CreateDate { get; set; }

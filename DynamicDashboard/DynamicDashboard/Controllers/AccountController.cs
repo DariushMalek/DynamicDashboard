@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DynamicDashboard.Infrastructure.Identity;
 using DynamicDashboard.Models;
 using DynamicDashboard.Models.AccountViewModels;
 using Microsoft.AspNetCore.Authentication;

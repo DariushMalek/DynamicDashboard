@@ -7,3 +7,8 @@
 /DynamicDashboard/DynamicDashboard/bin/Debug/netcoreapp2.2
 /DynamicDashboard/DynamicDashboard.sln.DotSettings.user
 *.user
+/DynamicDashboard/ApplicationCore/obj
+/DynamicDashboard/DynamicDashboard.Core/bin/Debug/netcoreapp2.2
+/DynamicDashboard/DynamicDashboard.Core/obj
+/DynamicDashboard/DynamicDashboard.Infrastructure/bin/Debug/netcoreapp2.2
+/DynamicDashboard/DynamicDashboard.Infrastructure/obj

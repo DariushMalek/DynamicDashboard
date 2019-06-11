@@ -1,4 +1,5 @@
-﻿@inject IMenuMasterService menus
+﻿
+@inject IMenuMasterService menus
 <!-- BEGIN SIDEBAR MENU -->
 <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
 <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
@@ -34,9 +35,9 @@
     </li>
     @if (User.Identity.IsAuthenticated)
     {
-        if (menus.GetUserMenuMaster().Any())
+        if (menus.GetUserMenuMaster().Result.Any())
         {
-            var userMenus = menus.GetUserMenuMaster().OrderBy(n => n.Priority);
+            var userMenus = menus.GetUserMenuMaster().Result.OrderBy(n => n.Priority);
             foreach (var parentMenu in userMenus.Where(n => n.ParentMenuId == null))
             {
                 if (!parentMenu.IsHeading)
