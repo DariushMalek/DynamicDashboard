@@ -77,6 +77,7 @@ namespace DynamicDashboard
                 options.AccessDeniedPath = "/Account/AccessDenied"; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied  
                 options.SlidingExpiration = true;
             });
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
             services.AddScoped<IMenuMasterService, MenuMasterService>();
             services.AddScoped<IMenuMasterRepository, MenuMasterRepository>();
             services.AddTransient<MenuMasterService, MenuMasterService>();

@@ -36,7 +36,7 @@
     </li>
     @if (User.Identity.IsAuthenticated)
     {
-        var userMenus = (await menus.GetUserMenuMaster()).OrderBy(n => n.Priority);
+        var userMenus = menus.GetUserMenuMaster().Result.OrderBy(n => n.Priority);
         if (userMenus.Any())
         {
 
