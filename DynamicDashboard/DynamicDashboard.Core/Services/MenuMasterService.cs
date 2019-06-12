@@ -11,10 +11,10 @@ namespace DynamicDashboard.Core.Services
 {
     public class MenuMasterService : IMenuMasterService
     {
-        private readonly IAsyncRepository<MenuMaster> _menuMasterRepository;
+        private readonly IMenuMasterRepository _menuMasterRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public MenuMasterService(IAsyncRepository<MenuMaster> menuMasterRepository,
+        public MenuMasterService(IMenuMasterRepository menuMasterRepository,
             IHttpContextAccessor httpContextAccessor)
         {
             _menuMasterRepository = menuMasterRepository;

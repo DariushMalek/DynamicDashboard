@@ -77,10 +77,14 @@ namespace DynamicDashboard
                 options.AccessDeniedPath = "/Account/AccessDenied"; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied  
                 options.SlidingExpiration = true;
             });
-            services.AddTransient<IMenuMasterService, MenuMasterService>();
+            services.AddScoped<IMenuMasterService, MenuMasterService>();
+            services.AddScoped<IMenuMasterRepository, MenuMasterRepository>();
+            services.AddTransient<MenuMasterService, MenuMasterService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -116,17 +120,16 @@ namespace DynamicDashboard
 
         private async Task CreateUserRoles(IServiceProvider serviceProvider)
         {
-            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-            var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
 
-            IdentityResult roleResult;
             //Adding Addmin Role  
-            var roleCheck = await RoleManager.RoleExistsAsync("Admin");
+            var roleCheck = await roleManager.RoleExistsAsync("Admin");
             if (!roleCheck)
             {
                 //create the roles and seed them to the database  
-                roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+                await roleManager.CreateAsync(new IdentityRole("Admin"));
             }
 
             //roleCheck = await RoleManager.RoleExistsAsync("Manager");
@@ -136,7 +139,7 @@ namespace DynamicDashboard
             //    roleResult = await RoleManager.CreateAsync(new IdentityRole("Manager"));
             //}
 
-            var currentUser = await UserManager.FindByEmailAsync("nomalek@gmail.com");
+            var currentUser = await userManager.FindByEmailAsync("nomalek@gmail.com");
             if ( currentUser == null)
             {
                 var user = new ApplicationUser
@@ -144,8 +147,8 @@ namespace DynamicDashboard
                     Email = "nomalek@gmail.com",
                     UserName = "d.malek"
                 };
-                await UserManager.CreateAsync(user, "windows123");
-                await UserManager.AddToRoleAsync(user, "Admin");
+                await userManager.CreateAsync(user, "windows123");
+                await userManager.AddToRoleAsync(user, "Admin");
             }
 
 
