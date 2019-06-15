@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace DynamicDashboard.Core.Entities
+namespace DynamicDashboard.Models
 {
-    public class MenuMaster:BaseEntity
+    public class MenuMasterViewModel
     {
         public string MenuName { get; set; }
         public string MenuTitle { get; set; }
@@ -19,6 +20,5 @@ namespace DynamicDashboard.Core.Entities
         public bool IsHeading { get; set; }
         public string MenuClassContent { get; set; }
         public string HtmlAfterTitle { get; set; }
-        public virtual MenuMaster ParentMenu { get; set; }
     }
 }

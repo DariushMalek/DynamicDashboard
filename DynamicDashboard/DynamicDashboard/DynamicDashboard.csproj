@@ -20,9 +20,4 @@
     <ProjectReference Include="..\DynamicDashboard.Infrastructure\DynamicDashboard.Infrastructure.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Views\MenuMaster\" />
-  </ItemGroup>
-
 </Project>
